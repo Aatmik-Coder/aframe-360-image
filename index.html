@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Tour</title>
+    <meta name="description" content="360&deg; Tour - A-Frame">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="primitives/tour.js"></script>
+    <script src="primitives/hotspot.js"></script>
+    <script src="primitives/panorama.js"></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse">
+      <a-assets>
+        <a-mixin id="hotspot-text" text="font: exo2bold; width: 5" geometry="primitive: plane; width: 1.6; height: 0.4" material="color: black;" position="0 -0.6 0"></a-mixin>
+        <a-mixin id="hotspot-target" geometry="primitive: octahedron; radius: 0.1;" material="flatShading: true; color: rgb(255, 0, 161)"></a-mixin>
+      </a-assets>
+      <a-tour hotspot-helper="target: #test">
+        <a-panorama id="first" src="assets/360_1.jpg" rotation="0 0 0"></a-panorama>
+        <a-panorama id="second" src="assets/360_2.png" rotation="0 0 0"></a-panorama>
+        <a-panorama id="third" src="assets/360_3.png" rotation="0 0 0"></a-panorama>
+
+        <a-hotspot for="first" to="second" mixin="hotspot-target" position="1.098 -0.39 -4.862">
+          <a-text value="dinning hall" align="center" mixin="hotspot-text"></a-text>
+        </a-hotspot>
+
+        <a-hotspot for="second" to="first" mixin="hotspot-target" position="2.218 -0.569 -4.445">
+          <a-text value="living room" align="center" mixin="hotspot-text"></a-text>
+        </a-hotspot>
+
+        <a-hotspot for="second" to="third" mixin="hotspot-target" position="-4.217 -0.29 2.67" rotation="0 120 0">
+            <a-text value="bed room" align="center" mixin="hotspot-text"></a-text>
+        </a-hotspot>
+
+        <a-hotspot for="third" to="second" mixin="hotspot-target" position="-3.862 0.163 -3.172" rotation="0 80 0">
+            <a-text value="dinning hall" align="center" mixin="hotspot-text"></a-text>
+        </a-hotspot>
+        
+        <a-hotspot for="third" to="first" mixin="hotspot-target" position="-1.757 -0.107 -4.68">
+            <a-text value="living room" align="center" mixin="hotspot-text"></a-text>
+        </a-hotspot>
+      </a-tour>
+
+      <!-- <a-entity camera look-controls wasd-controls>
+        <a-entity cursor position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03"
+          material="color: green; shader: flat">
+        </a-entity>
+      </a-entity> -->
+    </a-scene>
+  </body>
+</html>
