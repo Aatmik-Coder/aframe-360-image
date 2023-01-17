@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Custom Minimap</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="primitives/tour.js"></script>
+    <script src="primitives/hotspot2.js"></script>
+    <script src="primitives/panorama.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #scene {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        #map {
+            border: 2px solid black;
+            width: 250px;
+            height: 250px;
+            top: 15px;
+            right: 15px;
+            position: absolute;
+        }
+
+        .dot {
+            height: 25px;
+            width: 25px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #link_1 {
+            top: 0px;
+            left: 0px;
+            cursor: pointer;
+        }
+
+        #link_2 {
+            top: 30px;
+            left: 30px;
+            cursor: pointer;
+        }
+
+        #link_3 {
+            top: 60px;
+            left: 60px;
+            cursor: pointer;
+        }
+
+        #link_4 {
+            top: 90px;
+            left: 90px;
+            cursor: pointer;
+        }
+
+        #link_5 {
+            top: 120px;
+            left: 120px;
+            cursor: pointer;
+        }
+
+        #link_6 {
+            top: 150px;
+            left: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <a-scene cursor="rayOrigin:mouse">
+        <a-assets>
+            <a-mixin id="hotspot-text" text="font: exo2bold; width: 5"
+                geometry="primitive: plane; width: 1.6; height: 0.4" material="color: black;" position="0 -0.6 0">
+            </a-mixin>
+            <a-mixin id="hotspot-target" geometry="primitive: sphere; radius: 0.1"
+                material="flatShading: true; color: rgb(255, 0, 161)">
+            </a-mixin>
+        </a-assets>
+
+        <!-- <a-tour hotspot_helper="target:#map">
+            <a-panorama id="first" src="assets/360_2.png" rotation="0 0 0"></a-panorama>
+            <a-panorama id="second" src="assets/360_3.png" rotation="0 0 0"></a-panorama>
+
+            <a-hotspot id="first_1" for="first" to="second" mixin="hotspot-target" position="1.098 -0.39 -4.862">
+                <a-text value="dinning hall" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot id="second_2" for="second" to="first" mixin="hotspot-target" position="2.218 -0.569 -4.445">
+                <a-text value="living room" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+        </a-tour> -->
+
+        <a-tour hotspot_helper="target:#map">
+            <a-panorama id="first" src="assets/new_1.jpeg" rotation="0 0 0"></a-panorama>
+            <a-panorama id="second" src="assets/new_2.jpeg" rotation="0 0 0"></a-panorama>
+            <a-panorama id="third" src="assets/new_3.jpeg" rotation="0 0 0"></a-panorama>
+            <a-panorama id="fourth" src="assets/new_4.jpeg" rotation="0 0 0"></a-panorama>
+            <a-panorama id="fifth" src="assets/new_5.jpeg" rotation="0 0 0"></a-panorama>
+            <a-panorama id="sixth" src="assets/new_6.jpeg" rotation="0 0 0"></a-panorama>
+
+            <a-hotspot id="second_2" for="first" to="second" mixin="hotspot-target" position="1.372 0.13 -4.806">
+                <a-text value="second" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="first" to="sixth" mixin="hotspot-target" position="4.028 0.23 -2.954">
+                <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot id="first_1" for="second" to="first" mixin="hotspot-target" position="-1.089 -0.13 4.878" rotation="0 180 0">
+                <a-text value="first" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot id="third_3" for="second" to="third" mixin="hotspot-target" position="4.653 -0.02 -1.83" rotation="0 -45 0">
+                <a-text value="third" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="third" to="second" mixin="hotspot-target" position="4.989 -0.15 0.296" rotation="0 -60 0">
+                <a-text value="second" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="third" to="first" mixin="hotspot-target" position="4.919 -0.29 -0.848" rotation="0 -60 0">
+                <a-text value="first" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot id="fourth_4" for="third" to="fourth" mixin="hotspot-target" position="4.83 0.18 -1.279" rotation="0 -60 0">
+                <a-text value="fourth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot id="fifth_5" for="fourth" to="fifth" mixin="hotspot-target" position="-3.109 -0.18 3.912" rotation="0 100 0">
+                <a-text value="fifth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="fourth" to="sixth" mixin="hotspot-target" position="-3.775 -0.04 3.279" rotation="0 -180 0">
+                <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="fourth" to="third" mixin="hotspot-target" position="0.571 -0.14 4.965" rotation="0 -140 0">
+                <a-text value="third" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot id="sixth_6" for="fifth" to="sixth" mixin="hotspot-target" position="4.829 -0.21 -1.278" rotation="0 -60 0">
+                <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="fifth" to="fourth" mixin="hotspot-target" position="3.169 -0.27 3.858" rotation="0 -90 0">
+                <a-text value="fourth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="sixth" to="fifth" mixin="hotspot-target" position="4.829 -0.21 -1.278" rotation="0 -60 0">
+                <a-text value="fifth" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+
+            <a-hotspot for="sixth" to="first" mixin="hotspot-target" position="2.407 -0.09 4.381" rotation="0 -120 0">
+                <a-text value="first" align="center" mixin="hotspot-text"></a-text>
+            </a-hotspot>
+        </a-tour>
+
+        <a-entity camera look-controls wasd-controls>
+        </a-entity>
+
+    </a-scene>
+    <div id="map">
+        <img src="assets/new_1.jpeg" alt="" width="100%" height="100%">
+        <p id="link_1" class="dot"></p>
+        <p id="link_2" class="dot"></p>
+        <p id="link_3" class="dot"></p>
+        <p id="link_4" class="dot"></p>
+        <p id="link_5" class="dot"></p>
+        <p id="link_6" class="dot"></p>
+    </div>
+</body>
+<script>
+    $(document).ready(() => {
+        $('#link_1').click(() => {
+            $('p').css('background-color', 'red');
+            $('#first_1').click();
+            $('#link_1').css('background-color', 'pink');
+        });
+
+        $('#link_2').click(() => {
+            $('p').css('background-color', 'red');
+            $('#second_2').click();
+            $('#link_2').css('background-color', 'pink');
+        })
+
+        $('#link_3').click(() => {
+            $('p').css('background-color', 'red');
+            $('#third_3').click();
+            $('#link_3').css('background-color', 'pink');
+        })
+
+        $('#link_4').click(() => {
+            $('p').css('background-color', 'red');
+            $('#fourth_4').click();
+            $('#link_4').css('background-color', 'pink');
+        })
+
+        $('#link_5').click(() => {
+            $('p').css('background-color', 'red');
+            $('#fifth_5').click();
+            $('#link_5').css('background-color', 'pink');
+        })
+
+        $('#link_6').click(() => {
+            $('p').css('background-color', 'red');
+            $('#sixth_6').click();
+            $('#link_6').css('background-color', 'pink');
+        })
+    });
+</script>
+
+</html>
