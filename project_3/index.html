@@ -6,6 +6,8 @@
     <title>Custom Minimap</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="primitives/tour.js"></script>
     <script src="primitives/hotspot2.js"></script>
     <script src="primitives/panorama.js"></script>
@@ -23,56 +25,100 @@
         }
 
         #map {
-            border: 2px solid black;
+            border: none;
             width: 250px;
             height: 250px;
             top: 15px;
             right: 15px;
             position: absolute;
+            border: 1px solid black;
         }
 
         .dot {
-            height: 25px;
-            width: 25px;
+            height: 15px;
+            width: 15px;
             background-color: red;
             border-radius: 50%;
             position: absolute;
         }
 
         #link_1 {
-            top: 0px;
-            left: 0px;
+            bottom: 16px;
+            left: 91px;
             cursor: pointer;
         }
 
         #link_2 {
-            top: 30px;
-            left: 30px;
+            bottom: 31px;
+            left: 41px;
             cursor: pointer;
         }
 
         #link_3 {
-            top: 60px;
-            left: 60px;
+            top: 45px;
+            left: 9px;
             cursor: pointer;
         }
 
         #link_4 {
-            top: 90px;
-            left: 90px;
+            bottom: 5px;
+            right: 102px;
             cursor: pointer;
         }
 
         #link_5 {
-            top: 120px;
-            left: 120px;
+            top: 29px;
+            left: 24px;
             cursor: pointer;
         }
 
         #link_6 {
-            top: 150px;
-            left: 150px;
+            top: 91px;
+            left: 27px;
             cursor: pointer;
+        }
+
+        @media (max-width: 767px) {
+            #map {
+                width: 150px;
+                height: 150px;
+            }
+
+            .dot {
+                height: 10px;
+                width: 10px;
+                margin: 0;
+            }
+
+            #link_1 {
+                bottom: 18px;
+                left: 50px;
+            }
+
+            #link_2 {
+                bottom: 26px;
+                left: 22px;
+            }
+
+            #link_3 {
+                top: 26px;
+                left: 5px;
+            }
+
+            #link_4 {
+                bottom: 11px;
+                right: 60px;
+            }
+
+            #link_5 {
+                top: 18px;
+                left: 15px;
+            }
+
+            #link_6 {
+                top: 53px;
+                left: 16px;
+            }
         }
     </style>
 </head>
@@ -113,15 +159,17 @@
                 <a-text value="second" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="first" to="sixth" mixin="hotspot-target" position="4.028 0.23 -2.954">
+            <a-hotspot for="first" to="sixth" mixin="hotspot-target" position="2.569 0.16 -4.286">
                 <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot id="first_1" for="second" to="first" mixin="hotspot-target" position="-1.089 -0.13 4.878" rotation="0 180 0">
+            <a-hotspot id="first_1" for="second" to="first" mixin="hotspot-target" position="-1.089 -0.13 4.878"
+                rotation="0 180 0">
                 <a-text value="first" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot id="third_3" for="second" to="third" mixin="hotspot-target" position="4.653 -0.02 -1.83" rotation="0 -45 0">
+            <a-hotspot id="third_3" for="second" to="third" mixin="hotspot-target" position="4.653 -0.02 -1.83"
+                rotation="0 -45 0">
                 <a-text value="third" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
@@ -133,15 +181,17 @@
                 <a-text value="first" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot id="fourth_4" for="third" to="fourth" mixin="hotspot-target" position="4.83 0.18 -1.279" rotation="0 -60 0">
+            <a-hotspot id="fourth_4" for="third" to="fourth" mixin="hotspot-target" position="4.83 0.18 -1.279"
+                rotation="0 -60 0">
                 <a-text value="fourth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot id="fifth_5" for="fourth" to="fifth" mixin="hotspot-target" position="-3.109 -0.18 3.912" rotation="0 100 0">
+            <a-hotspot id="fifth_5" for="fourth" to="fifth" mixin="hotspot-target" position="-2.903 -0.17 4.203"
+                rotation="0 120 0">
                 <a-text value="fifth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="fourth" to="sixth" mixin="hotspot-target" position="-3.775 -0.04 3.279" rotation="0 -180 0">
+            <a-hotspot for="fourth" to="sixth" mixin="hotspot-target" position="-1.889 -0.18 4.626" rotation="0 -180 0">
                 <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
@@ -149,15 +199,16 @@
                 <a-text value="third" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot id="sixth_6" for="fifth" to="sixth" mixin="hotspot-target" position="4.829 -0.21 -1.278" rotation="0 -60 0">
+            <a-hotspot id="sixth_6" for="fifth" to="sixth" mixin="hotspot-target" position="0.893 -0.18 4.916"
+                rotation="0 -180 0">
                 <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="fifth" to="fourth" mixin="hotspot-target" position="3.169 -0.27 3.858" rotation="0 -90 0">
+            <a-hotspot for="fifth" to="fourth" mixin="hotspot-target" position="3.169 -0.27 3.858" rotation="0 -100 0">
                 <a-text value="fourth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="sixth" to="fifth" mixin="hotspot-target" position="4.829 -0.21 -1.278" rotation="0 -60 0">
+            <a-hotspot for="sixth" to="fifth" mixin="hotspot-target" position="0.07 -0.02 -4.999" rotation="0 0 0">
                 <a-text value="fifth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
@@ -171,7 +222,7 @@
 
     </a-scene>
     <div id="map">
-        <img src="assets/new_1.jpeg" alt="" width="100%" height="100%">
+        <img src="assets/map.png" alt="" width="100%" height="100%">
         <p id="link_1" class="dot"></p>
         <p id="link_2" class="dot"></p>
         <p id="link_3" class="dot"></p>
