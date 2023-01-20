@@ -132,7 +132,7 @@
                 geometry="primitive: plane; width: 1.6; height: 0.4" material="color: black;" position="0 -0.6 0">
             </a-mixin>
             <a-mixin id="hotspot-target" geometry="primitive: sphere; radius: 0.1"
-                material="flatShading: true; color: rgb(255, 0, 161)">
+                material="flatShading: true; color: rgb(0, 0, 255)">
             </a-mixin>
         </a-assets>
 
@@ -161,7 +161,7 @@
                 <a-text value="second" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="first" to="sixth" mixin="hotspot-target" position="2.569 0.16 -4.286">
+            <a-hotspot id="first_16" for="first" to="sixth" mixin="hotspot-target" position="2.569 0.16 -4.286">
                 <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
@@ -175,11 +175,11 @@
                 <a-text value="third" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="third" to="second" mixin="hotspot-target" position="4.989 -0.15 0.296" rotation="0 -60 0">
+            <a-hotspot id="third_32" for="third" to="second" mixin="hotspot-target" position="4.989 -0.15 0.296" rotation="0 -60 0">
                 <a-text value="second" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="third" to="first" mixin="hotspot-target" position="4.919 -0.29 -0.848" rotation="0 -60 0">
+            <a-hotspot id="third_31" for="third" to="first" mixin="hotspot-target" position="4.919 -0.29 -0.848" rotation="0 -60 0">
                 <a-text value="first" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
@@ -193,11 +193,11 @@
                 <a-text value="fifth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="fourth" to="sixth" mixin="hotspot-target" position="-1.889 -0.18 4.626" rotation="0 -180 0">
+            <a-hotspot id="fourth_46" for="fourth" to="sixth" mixin="hotspot-target" position="-1.889 -0.18 4.626" rotation="0 -180 0">
                 <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="fourth" to="third" mixin="hotspot-target" position="0.571 -0.14 4.965" rotation="0 -140 0">
+            <a-hotspot id="fourth_43" for="fourth" to="third" mixin="hotspot-target" position="0.571 -0.14 4.965" rotation="0 -140 0">
                 <a-text value="third" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
@@ -206,15 +206,15 @@
                 <a-text value="sixth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="fifth" to="fourth" mixin="hotspot-target" position="3.169 -0.27 3.858" rotation="0 -100 0">
+            <a-hotspot id="fifth_54" for="fifth" to="fourth" mixin="hotspot-target" position="3.169 -0.27 3.858" rotation="0 -100 0">
                 <a-text value="fourth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="sixth" to="fifth" mixin="hotspot-target" position="0.07 -0.02 -4.999" rotation="0 0 0">
+            <a-hotspot id="sixth_65" for="sixth" to="fifth" mixin="hotspot-target" position="0.07 -0.02 -4.999" rotation="0 0 0">
                 <a-text value="fifth" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
 
-            <a-hotspot for="sixth" to="first" mixin="hotspot-target" position="2.407 -0.09 4.381" rotation="0 -120 0">
+            <a-hotspot id="sixth_61" for="sixth" to="first" mixin="hotspot-target" position="2.407 -0.09 4.381" rotation="0 -120 0">
                 <a-text value="first" align="center" mixin="hotspot-text"></a-text>
             </a-hotspot>
         </a-tour>
@@ -235,36 +235,92 @@
 </body>
 <script>
     $(document).ready(() => {
+        $('#first_1').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_1').css('background-color', 'pink');
+        });
+        $('#third_31').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_1').css('background-color', 'pink');
+        });
+        $('#sixth_61').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_1').css('background-color', 'pink');
+        });
         $('#link_1').click(() => {
             $('p').css('background-color', 'red');
             $('#first_1').click();
             $('#link_1').css('background-color', 'pink');
-        });
+        })
 
+        $('#second_2').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_2').css('background-color', 'pink');
+        });
+        $('#third_32').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_2').css('background-color', 'pink');
+        });
         $('#link_2').click(() => {
             $('p').css('background-color', 'red');
             $('#second_2').click();
             $('#link_2').css('background-color', 'pink');
         })
 
+        $('#third_3').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_3').css('background-color', 'pink');
+        });
+        $('#fourth_43').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_3').css('background-color', 'pink');
+        });
         $('#link_3').click(() => {
             $('p').css('background-color', 'red');
             $('#third_3').click();
             $('#link_3').css('background-color', 'pink');
         })
 
+        $('#fourth_4').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_4').css('background-color', 'pink');
+        });
+        $('#fifth_54').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_4').css('background-color', 'pink');
+        });
         $('#link_4').click(() => {
             $('p').css('background-color', 'red');
             $('#fourth_4').click();
             $('#link_4').css('background-color', 'pink');
         })
 
+        $('#fifth_5').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_5').css('background-color', 'pink');
+        });
+        $('#sixth_65').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_5').css('background-color', 'pink');
+        });
         $('#link_5').click(() => {
             $('p').css('background-color', 'red');
             $('#fifth_5').click();
             $('#link_5').css('background-color', 'pink');
         })
 
+        $('#sixth_6').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_6').css('background-color', 'pink');
+        });
+        $('#first_16').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_6').css('background-color', 'pink');
+        });
+        $('#fourth_46').click(() => {
+            $('p').css('background-color', 'red');
+            $('#link_6').css('background-color', 'pink');
+        });
         $('#link_6').click(() => {
             $('p').css('background-color', 'red');
             $('#sixth_6').click();
